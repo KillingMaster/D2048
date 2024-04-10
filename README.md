@@ -2,7 +2,7 @@
 
 # 2048 Clone
 
-This is project is an 2048 clone made with react native project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This is project is an 2048 clone made with react native, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 The followng features are to be expected :
 
