@@ -1,41 +1,34 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
+ * Project main component
+ * Author : littledarkbug(@Killingmaster)
  */
 
 import {NavigationContainer} from '@react-navigation/native';
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  useColorScheme,
-} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React, { useEffect } from 'react';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import SplashScreen from './screens/SplashScreen';
+import MainMenu from './screens/MainMenu';
+import { NativeModules, Platform } from 'react-native';
+
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  console.log('isDarkMode', isDarkMode);
-
-  const backgroundStyle = {
-    backgroundColor: !isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   return (
     <NavigationContainer>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-          barStyle={!isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
+      <Stack.Navigator>
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{headerShown: false}}
         />
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}
+        <Stack.Screen
+          name="MainMenu"
+          component={MainMenu}
+          options={{headerShown: false}}
         />
-      </SafeAreaView>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
